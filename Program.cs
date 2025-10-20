@@ -376,6 +376,31 @@ if (true) { } // kaitstud sõna if kutsub esile tingimuslause, mille tingimus on
 else if (true) { } // kaitstud sõnad else ja id (else if) kutsuvad esile sekundaarse tingimuslause mille tingimus //on samamoodi sulgude vahel ning millele peab eelnema alati if või else if. tingimuslause täitumisel // ja eelneva tingimuse mittetäitumisel teostatakse koodiploki sees olev kood.
 else {} // kaitstud sõna else kutsub esile järeltingimuse, millele peab eelnema kas //if või else if, ning mille koodi plokki sisu täidetakse kõikide if ja else if sees olevate tingimuste läbikukkumisel.
 
+int option = 3; // -------
+switch (option) //"switch" on kaitstud sõna alternatiivse tingimuskontrolli jaoks mida saab if else-if asemel kasutada.
+    //Sulgude vahele käib muutuja nimi, mille põhjal tingimuslik ümberlülitus toimub. Siin sulgude vahel ei ole tingimus ise, vaid kõigest kontrollitav muutuja, või omakorda sulgude vahel muu tingimus.
+    //pärast lülitusvalikut tuleb koodiplokk
+   
+{
+    case 1: //koodiplokki sees on erinevad juhtumid. juhttumit kontrollitakse kaitstud sõna "case abil. Antud juhul kontrollitakse , kas muutuja on väärtus 1 , millele järgneb koolon":"
+        //peale koolonit kirjeldatakse tehtav tegevus.
+
+        break; //ja kui tegevus on täidetud, väljutakse kogu switch tegevusest kaitstud sõna "breakiga. Peale breaki on lauselõppumärk.
+    case 2:
+        break;
+    case 3:
+        break;
+        //juhtumeid võib olla mitmeid, antud juhul on neid kolm kindlat, ja üks mida tehakse igal muul juhul.
+
+    default: //kaitstud sõna "default2 avab juhtumi kui muutujas ei ole mitte ühtegi muud "case juhtumi tingimust.
+        break; // ka default lõppeb sõnaga "break"
+}
+
+/* Sõne tööriistad ja tekstiga seotud */
+string alfa = "a\nb";   // \n - tekitab ühe sõne sisse reamurde, sõne kus on üks "\n" omab kahte rida
+string beta = $"{alfa}";  //$ - lubab kasutada muutujaid loogeliste sulgude vahel otse teksti sees.
+
+
 /* Loogilised tehted */
 //&& -"and" loogiline tehe, mida kasutatakse tingimuste kirjutamisel ning mis annab positiivse vastuse (true) juhul kui // mõlemal pool && märki olevad tingimused on täidetud. Kui üks neist ei ole, siis annab negatiivse vastuse (false).
 //|| -"or" loogiline tehe, mida kasutatakse tingimuste kirjutamisel, ning mis annab positiivse vastuse (true) siis kui vähemalt üks tingimus on täidetud. negatiivne vastus (false) tagastatakse siis, kui kõik tingimused on täitmata.
@@ -403,5 +428,13 @@ arv--; // -- - on spetsiifiliselt ühe maha liitmiseks lühivariant.----
 /* Tsüklid */
 do // "do" on kaitstud sõna, mis alustab do-while tsüklid pärast mida on koodi plokk , ning ütleb et tee seda koodi
 {
-
+    
 } while (true); //niikaua kuni while järel olevate sulgute vahel olev tingimus on täidetud.
+int i = 1; // tsüklimuutuja mis kontrollib "while" tsükli tööd
+//antud juhul on selleks i. Tsükli tingimus, mis peale "while" sõna on, sulgude vahel, kontrollibki tingimuse abil, selle muutuja olekut.
+// Siin kontrollitakse, et tsükkel ei oleks suurem kui 5, kui ta on, siis tsükkli töö loppeb.
+{
+    //koodiplokk kus midagi tehakse
+    i++; //ning seejärel muudetakse tsüklimuutuja "i" olekut, antud juhul liidetakse 1 juurde.
+}
+while (i < 5) //"while" on kaitstud sõna mis alustab while tsükli varianti, ilma do-ta ning vajab tihtipeale välist tsüklimuutujat
