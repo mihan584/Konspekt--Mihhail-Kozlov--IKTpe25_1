@@ -339,15 +339,15 @@
 //    Console.WriteLine(tulemus);
     // Adresseerime moodulit "Console", punkti abil ütleme et kasutame funktsiooni WriteLine, et kasutajale öelda sõnum.
     // lause lõppeb lauselõppumärkiga.
-//}
-
-Console.WriteLine("Palun sisesta ostusumma");
-// Adresseerime moodulit "Console" punkti abil ütleme et kasutame funktsiooni WriteLine, et kasutajale öelda sõnum.
+//}// Adresseerime moodulit "Console" punkti abil ütleme et kasutame funktsiooni WriteLine, et kasutajale öelda sõnum.
 // Parameeter mis antakse funktsioonile WriteLine töötlemiseks kaasa.
 // " - saab ka kasutada teksti sees muutujate kuvamiseks.
 // ; - iga koodilause lõppeb komakooloniga.
+//
+Console.WriteLine("Palun sisesta ostusumma");
+
 double ostusumma = double.Parse(Console.ReadLine());
-// 
+ 
 if (ostusumma > 100)
 
 {
@@ -397,7 +397,7 @@ arv += 1; // += - võrdusmärk mille ees on pluss, automaatselt liidab muutujale
 arv *= 2; // *= - võrdusmärk mille ees on korrutusmärk *. automaatselt korrutab muutuja sisu võrdusmärgi teisel pool oleva arvu kordi. asendab tehet "arv = arv * 2". on kombinatsioon matemaatilisest tehtest "*" ja omistamisest (=)
 arv /= 2; // /= - võrdusmärk mille ees on jagamismärk /. automaatselt jagab muutuja sisu võrdusmärgi teisel pool oleva arvu osadeks. asendab tehet "arv = arv / 2". on kombinatsioon matemaatilisest tehtest "/" ja omistamisest (=)
 arv++; // ++ - on spetsiifiliselt ühe juurde liitmiseks lühivariant.
-arv--; // -- - on spetsiifiliselt ühe maha liitmiseks lühivariant.
+arv--; // -- - on spetsiifiliselt ühe maha liitmiseks lühivariant.----
 
 
 /* Tsüklid */
