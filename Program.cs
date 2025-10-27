@@ -229,16 +229,34 @@
 //// = -> võrdusmärk omistab sellele muutujale mingisuguse väärtuse
 //// 3 -> väärtus mis sellele muutujale omistatakse
 
-////võimalikud andmetüübid:
-//int a = 1; // täisarv
-//decimal b = 2.0M; // kümnendsüsteemis olev komakohaga arv
-//float c = 3.0f; // kümnendsüsteemis olev ujukomaga arv
-//double d = 4.0d; // kümnendsüsteemis olev komakohaga arv, sarnane decimaliga
-//char c1 = 'a'; // üksainus täht või tähemärk
-//string s = "tekst"; // inimloetaval kujul tekst
-//var x = "abc"; // ebamäärase tüübiga kohalik muutuja. 
-//var y = 123;
-//const int z = 3; // konstant-tüüpi muutujaid ei saa muuta, need on read-only
+//võimalikud lihtandmetüübid:
+int a = 1; // täisarv
+decimal b = 2.0M; // kümnendsüsteemis olev komakohaga arv
+float c = 3.0f; // kümnendsüsteemis olev ujukomaga arv
+double d = 4.0d; // kümnendsüsteemis olev komakohaga arv, sarnane decimaliga
+char c1 = 'a'; // üksainus täht või tähemärk
+string s = "tekst"; // inimloetaval kujul tekst
+var x = "abc"; // ebamäärase tüübiga kohalik muutuja. 
+var y = 123;
+const int z = 3; // konstant-tüüpi muutujaid ei saa muuta, need on read-only
+
+//võimalikud komposiitandmetüübid
+// 1. massiiv:
+// [] - massiiv on komposiitandmetüübid, mille sees saab olla mitmeid samat tüüpi lihtandmeid. Massiivi tähistatakse kantsuludega.
+// Massiive saab olla ükskõik millist lihtandmetüübi massiive.
+// Esimene tekitusviis
+int[] arvuMassiiv = new int[3]; //andmetüüp int väljandab et tegu on täisarvutüübi andmega ja kantsulud väljandavad et tegu ühtlasi ka 
+     // masiiviga. nimeks on "arvuMassiiv" ja võrdusmärgiga,                            on esimeńe tekitusmoodus öelda et tegu on
+          // uue massiiviga kasutades kaitstud sõna "new" ja sellele järgneb massiivi pikkuse sätestus "int[3]"                      
+           // see tähendab et siin massiivis on 3 elementi mis on täisarvud
+                     
+
+
+// Teine tekitusviis:
+int[] arvuMassiiv2 = [1, 2, 3];  // teine massiivi tekitusviis, kus järjendi pikkuse sätestamine asemel, pannakse elemendid kohe sisse
+// järjendi pikkus tuletatakse elementite arvust
+
+
 
 ////põhilised matemaatilised tehted
 //int liitmine = 1 + 1; // liitmine, kaks arvu kokku
@@ -427,14 +445,28 @@ arv--; // -- - on spetsiifiliselt ühe maha liitmiseks lühivariant.----
 
 /* Tsüklid */
 do // "do" on kaitstud sõna, mis alustab do-while tsüklid pärast mida on koodi plokk , ning ütleb et tee seda koodi
+  
 {
-    
-} while (true); //niikaua kuni while järel olevate sulgute vahel olev tingimus on täidetud.
+    d++; 
+} while (d !=5); //niikaua kuni while järel olevate sulgute vahel olev tingimus on täidetud.
+// 2. while
 int i = 1; // tsüklimuutuja mis kontrollib "while" tsükli tööd
+while (i < 5)
 //antud juhul on selleks i. Tsükli tingimus, mis peale "while" sõna on, sulgude vahel, kontrollibki tingimuse abil, selle muutuja olekut.
 // Siin kontrollitakse, et tsükkel ei oleks suurem kui 5, kui ta on, siis tsükkli töö loppeb.
 {
     //koodiplokk kus midagi tehakse
     i++; //ning seejärel muudetakse tsüklimuutuja "i" olekut, antud juhul liidetakse 1 juurde.
-}
+
 while (i < 5) //"while" on kaitstud sõna mis alustab while tsükli varianti, ilma do-ta ning vajab tihtipeale välist tsüklimuutujat
+ }             
+
+
+
+
+    // 3. for
+    int kogus = 6; // muutuja mida tsükkel kasutab töötlemiseks mingisugusel kujul
+for (int k = 0; k < kogus; k++) // kaitstud sõna "for" alustab for tsüklit, pärast mida on sulud, mille vahel on kõik tsükli töö jaoks vajalik info. esimene parameeter tekitab tsükli töö jaoks muutuja "int k = 0;", teine parameeter on tingimuslause mis kontrollib tingimuslause täitumist "k < kogus;" ning kolmas inkrementeerib tekitatud muutujad "k++;", pane tähele et iga sulgude vahel oleva osa järel on lauselõpumärk. Tsükli tööd kontrolliv tingimuslause koosneb kolmest reast, mitte ühest nago while, või do-while puhul. koodiplokk kus tehakse mingi tegevus 
+{
+    Console.WriteLine(k); //antud juhul on tegevuseks muutuja "k" arvu väljakuvamine.
+}
