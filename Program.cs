@@ -281,7 +281,8 @@ int loendiPikkus = arvuNimekiri.Count(); // Loendi meetod "Count()" loeb kokku m
 bool kasSeeArvOn = arvuNimekiri3.Contains(3); // Loendi meetod "Contins(3); otsib kogu järjendi seest elementi, mis vastab sulgude vahel
 // olevate parameetrile, tagastab kas true või false on leitud või ei ole. Tegemist on põhimõteliselt foreach tsükliga, mis otsib kindlat parameetrid töödeldes läbi, kogu loendi
 
-arvuNimekiri3.Remove(4)
+arvuNimekiri3.Remove(4) // Loendi meetod "Remove()" eemaldab enne punkti olevast loendist, kindlal asukohal oleva elemendi. Sulguse
+    // vahel on parameetriks eemaldava elemendi asukoha´järjekorranumber
 
 
 
