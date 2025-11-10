@@ -245,7 +245,47 @@ const int z = 3; // konstant-tüüpi muutujaid ei saa muuta, need on read-only
 // [] - massiiv on komposiitandmetüübid, mille sees saab olla mitmeid samat tüüpi lihtandmeid. Massiivi tähistatakse kantsuludega.
 // Massiive saab olla ükskõik millist lihtandmetüübi massiive.
 // Esimene tekitusviis
-int[] arvuMassiiv = new int[3]; //andmetüüp int väljandab et tegu on täisarvutüübi andmega ja kantsulud väljandavad et tegu ühtlasi ka 
+int[] arvuMassiiv = new int[3];
+
+
+// 2. loend:
+// List <T> - Loend on komposiitandmetüüp, mille sees saab olla mitmeid samat tüüpi liht ja komposiitandmeid. Loend-tüüpi andmeid tähistatakse
+// Täiendava andmetüübikirjeldusega "List" mille järel nuulsulgudesse asetatakse mis tüüpi andmed loendis on.
+// Loendis tekitamisel, erinevalt massiviist, ei pea ütlema kui pikk loend on. Loendisse saab dünaamiliselt elemente juurde
+// lisada, ehk tema pikkus ei ole fikseeritud.
+// Sarnaselt massiiviga saab loend omada endas teisi loendeid.
+
+
+// esimene tekkitusviis:
+List<int> arvuNimekiri = new List<int>(); //Andmetüübi kirjeldus "List<>" näitab et tegu on loendiga, List noolsulgude vahel on loendis 
+// olevate andmete andmetüüp. muutuja nimeks on "arvuNimekiri".
+//Omistame sellese muutujasse laitstud sõna "new" uue tühja täisarvuloendi sätestusega "List<int> ()".
+// teine tekitusviis
+List<int> arvuNimekiri2 = new List<int>() {1 , 2 , 3}; //teine tekitusviis, muutuja instantseerimine võrdusmärgi ees on sama nagu
+//esimesel, juurde tuleb ainult võrdusmärgi taga olevate sätestusele loogelised
+//sulud koos juba sinna asetatud elemetiteg. Enam ei ole tegu tühja nimekirjaga,
+// vaid loendiga kus on kolm elementi.ö
+
+// kolmas tekitusviis
+List<int> arvuNimekiri3 = new List<int>(3); //kolmas loendi tekitusviis kus muutuja instateerimise jääb samaks, aga tavaliste sulguse 
+// vahel, sarnaselt massiviga saame anda loendile esialgne suurus. Loend ise ei oma veel 
+// andmeid, aga loendis on kolm tühja elementi. Nimelt, on sätestusel, peale andmetüübi
+// kirjeldavat noolsulguse, paar tavalisi sulge, mille sisse saab parameetriga panna loendi 
+// pikkuse. ()
+
+// ---- Loendi sisemised meetotid:
+arvuNimekiri.Add(67); // Loendimeetod "Add() lisab enne punkti olevale järjendile uue elemendi, element mida lisadda, on Add meetodi 
+// sulgude vahel. Elementi saab lisada otse (antud juhul 67) või muutujuna näiteks ... Add(A´arv);
+int loendiPikkus = arvuNimekiri.Count(); // Loendi meetod "Count()" loeb kokku mitu elemendi järjendis on, meetod tagastab täisarvu 
+// mis vastab elementi kogusele.
+bool kasSeeArvOn = arvuNimekiri3.Contains(3); // Loendi meetod "Contins(3); otsib kogu järjendi seest elementi, mis vastab sulgude vahel
+// olevate parameetrile, tagastab kas true või false on leitud või ei ole. Tegemist on põhimõteliselt foreach tsükliga, mis otsib kindlat parameetrid töödeldes läbi, kogu loendi
+
+arvuNimekiri3.Remove(4)
+
+
+
+//andmetüüp int väljandab et tegu on täisarvutüübi andmega ja kantsulud väljandavad et tegu ühtlasi ka 
      // masiiviga. nimeks on "arvuMassiiv" ja võrdusmärgiga,                            on esimeńe tekitusmoodus öelda et tegu on
           // uue massiiviga kasutades kaitstud sõna "new" ja sellele järgneb massiivi pikkuse sätestus "int[3]"                      
            // see tähendab et siin massiivis on 3 elementi mis on täisarvud
@@ -460,7 +500,10 @@ while (i < 5)
     //koodiplokk kus midagi tehakse
     i++; //ning seejärel muudetakse tsüklimuutuja "i" olekut, antud juhul liidetakse 1 juurde.
 
-while (i < 5) //"while" on kaitstud sõna mis alustab while tsükli varianti, ilma do-ta ning vajab tihtipeale välist tsüklimuutujat
+while (i < 5)
+    {
+
+    }//"while" on kaitstud sõna mis alustab while tsükli varianti, ilma do-ta ning vajab tihtipeale välist tsüklimuutujat
  }             
 
 
@@ -472,3 +515,15 @@ for (int k = 0; k < kogus; k++) // kaitstud sõna "for" alustab for tsüklit, p�
 {
     Console.WriteLine(k); //antud juhul on tegevuseks muutuja "k" arvu väljakuvamine.
 }
+
+//4. foreach
+int[] arvuLoend = { 3, 89, 123412, 7, 67 }; //massiiv mida foreach tsükkel kasutab, või töötleb mingil kujul.
+foreach (var arvInLoend in arvuLoend) //kaitstud sõna foreach alustab foreach tsükli. pärast mida on sulud, mille vahel tekitakse ajutine muutuja andmetüübiga "var" töödeldava andmekogumi üksikelemendi jaoks. süntaksis olev kaitstud sõna "in" väljendb et tsükkel käib selle loendi elementide kohta, ning var "arvInLoend
+                                      //muutuja hoiab endab just peale sõna "in" oleva andmekogumi elementi. Tsüklil ei ole nähtavat tsüklimuutujat ega tingimust., tsükkel toimib niikaua kuni elemente jätkub ehk tsükli töö käib 
+                                      //iga üksiku elemendi kohta andmekogumis. Tsüklil ei ole vaja tsüklimuutujat, kuna talle on sisse ehitatud vaikimisi elemendi järjestuse jälgimine. Niipalju kui andmeid on, ongi see
+                                      //mitu korda tsükkel käivitakse.
+
+
+{ // {} koodiplokk kus tehakse mingi tegevus.
+    Console.WriteLine(arvInLoend);// antud juhul kuvatakse välja ajutine //muutujamille sees on loendi elementi
+    }
