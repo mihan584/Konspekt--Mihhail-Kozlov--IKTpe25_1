@@ -528,3 +528,26 @@ foreach (var arvInLoend in arvuLoend) //kaitstud sõna foreach alustab foreach t
 { // {} koodiplokk kus tehakse mingi tegevus.
     Console.WriteLine(arvInLoend);// antud juhul kuvatakse välja ajutine //muutujamille sees on loendi elementi
     }
+
+/* castimine */
+
+// castimine on viis kuidas ühest andmetüübist teist saada. castimist on kahte eri liiki automaatne ja manuaalne.
+// Automaatne castimine toimub siis kui teisendatakse väiksemast andmetüübist suuremasse
+// Manuaalne castimine toimib siis kui tahetakse saada suuremast andmetüübist väiksemat
+// Castitacse nii et teisendava muutuja ette pannakse sulud koos soovitud andmetüübiga
+
+double newDatal = 2.22d; //tekitame või on olemas suure mahuga andmed muutujas newDatal. Tegu on double admetega.
+float datalFloat = (float)newDatal; // "(float)" teisendab double tüüpi andmed float tüüpi andmeteks.
+long datalLong = (long)newDatal; // "(long)" teisendab double tüüpi andmed long tüüpi andmeteks.
+int datalInt = (int)newDatal; //"(int)" teisendab double tüüpi andmed int tüüpi andmeteks.
+char datalChar = (char)newDatal; //"(char)" teisendab double tüüpi andmed char tüüpi andmeteks.
+
+
+
+Math.Round(d); //Moodulist "Math" kutsutakse punkti abil esile meetod "Round". Sulgude vahel on ümardav arv.
+//Round ümardab sulgude vahel olevas muutujas asetseva arvu, vastavalt komakohtade parameetrile.
+// Vaikeväärtusena, lähima täisarvuni. 0-4 on allapoole 5-9 on ülespoole.
+
+double newpi = Math.PI; // Moodulist "Math" kutsutakse punkti abil esile väärtus, PI misväljendab matemaatilist pi-d ning saab kasutada kui tavaline arv.
+double astendus = Math.Pow(2, 2); // Moodulist "Math" kutsutakse punkti abil esile meetod "Pow" (power) Sulgude vahel on
+// Kaks parameetrit.
