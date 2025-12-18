@@ -229,6 +229,7 @@
 //// = -> võrdusmärk omistab sellele muutujale mingisuguse väärtuse
 //// 3 -> väärtus mis sellele muutujale omistatakse
 
+internal class Program
 //võimalikud lihtandmetüübid:
 int a = 1; // täisarv
 decimal b = 2.0M; // kümnendsüsteemis olev komakohaga arv
@@ -412,95 +413,316 @@ double ostusumma = double.Parse(Console.ReadLine());
 if (ostusumma > 100)
 
 {
-    Console.WriteLine("Saa 20% allahindlust!");
+    private static void Main(string[] args)
+    {
+        //võimalikud lihtandmetüübid:
+        int a = 1; // täisarv
+        decimal b = 2.0M; // kümnendsüsteemis olev komakohaga arv
+        float c = 3.0f; // kümnendsüsteemis olev ujukomaga arv
+        double d = 4.0d; // kümnendsüsteemis olev komakohaga arv, sarnane decimaliga
+        char c1 = 'a'; // üksainus täht või tähemärk
+        string s = "tekst"; // inimloetaval kujul tekst
+        var x = "abc"; // ebamäärase tüübiga kohalik muutuja. 
+        var y = 123;
+        const int z = 3; // konstant-tüüpi muutujaid ei saa muuta, need on read-only
+                         //void - void on andmetüüp mida muutujatele anda ei saa 
+                         // void on andmetüüp mida kasutakse meetotide jms 
+                         // signatuuride, et näidata tagastava andmetüübi puudumist. Tegemist on sõna otses mõttes mitte millegagi.
+
+
+        //võimalikud komposiitandmetüübid
+        // 1. massiiv:
+        // [] - massiiv on komposiitandmetüübid, mille sees saab olla mitmeid samat tüüpi lihtandmeid. Massiivi tähistatakse kantsuludega.
+        // Massiive saab olla ükskõik millist lihtandmetüübi massiive.
+        // Esimene tekitusviis
+        int[] arvuMassiiv = new int[3]; //andmetüüp int väljandab et tegu on täisarvutüübi andmega ja kantsulud väljandavad et tegu ühtlasi ka 
+                                        // masiiviga. nimeks on "arvuMassiiv" ja võrdusmärgiga,                            on esimeńe tekitusmoodus öelda et tegu on
+                                        // uue massiiviga kasutades kaitstud sõna "new" ja sellele järgneb massiivi pikkuse sätestus "int[3]"                      
+                                        // see tähendab et siin massiivis on 3 elementi mis on täisarvud
+
+
+
+        // Teine tekitusviis:
+        int[] arvuMassiiv2 = [1, 2, 3];  // teine massiivi tekitusviis, kus järjendi pikkuse sätestamine asemel, pannakse elemendid kohe sisse
+                                         // järjendi pikkus tuletatakse elementite arvust
+                                         // --- massiivi sisemised meetotid
+        int hasthismany = arvuMassiiv.Length; // massiivi meetod "Length" mille me saame kasutusele võtta punkti abil, loendab kokku, mitu
+                                              // elementi järjendis parasjagu on.
+
+
+        ////põhilised matemaatilised tehted
+        //int liitmine = 1 + 1; // liitmine, kaks arvu kokku
+        //int lahutamine = 1 - 1; // lahutamine, esimene arv maha teisest
+        //int korrutamine = 1 * 1; //korrutamine, esimene arv korrutatakse teisega
+        //int jagamine = 1 / 1; //jagamine, esimene arv jagatakse teisega
+        //double astendamine = Math.Pow(2, 2); //astendamine, esimene arv astendatakse teisega
+        //double juurimine = Math.Sqrt(2); //ruutjuur, parameetriks arv mida juuritakse
+
+
+        //int arv = 0; // sobib
+        //string sõne = "abc"; //sobib
+        ////string string = "abc"; //ei sobi
+
+        //// muutuja nimeks ei sobi järgnevad sõnad:
+        ////abstract, as, base, bool, break, byte, case,
+        ////catch, char, checked, class, const, continue, decimal,
+        ////default, delegate, do, double, else, enum, event,
+        ////explicit, extern, false, finally, fixed, float, for
+        ////foreach, goto, if, implicit, in, int,
+        ////interface, internal, is, lock, long, namespace, new,
+        ////null, object, operator, out, override, params,
+        ////private, protected, public, readonly, ref, return, sbyte,
+        ////sealed, short, sizeof, stackalloc, static, string, struct,
+        ////switch, this, throw, true, try, typeof, uint,
+        ////ulong, unchecked, unsafe, ushort, using, virtual, void,
+        ////volatile, while.
+
+        ////Ülesanne, kasutades süntaksiseletust, kirjelda kommentaariga iga koodirida
+        //Console.WriteLine("tere, sisesta esimene liidetav arv");
+        ////Adresseerime moodulit "Console", punkti abil ütleme et kasutame funktsiooni WriteLine, et kasutajale öelda sõnum
+        //// mis asub funktsiooni taga olevate sulgude vahel, antud rida lõppeb lauselõpumärgiga.
+        //int arv1 = int.Parse(Console.ReadLine());
+        //// int - Muutuja nime ees olev andmetüübi kirjeldus. See näitab ära mis tüüpi andmed selle muutuja sees on.
+        //// = - võrdusmärk omistab sellele muutujale mingisuguse väärtuse.
+        //// int.Parse - väärtus mis sellele muutujale omistatakse.
+        //// Console - adresseritav moodul või objekt.
+        //// ReadLine - adresseritav funktsioon objektist Console.
+        //// () - sulupaar mis omab endas funktsioonile vajalikku infot.
+        //// ; - iga koodilause lõppeb komakooloniga.
+        //Console.WriteLine("tere, sisesta teine liidetav arv");
+        //// Console - adresseritav moodul või objekt.
+        //// WriteLine -  adresseritav funktsioon objektist Console.
+        //// () - sulupaar mis omab endas funktsioonile vajalikku infot.
+        //// " - saab ka kasutada teksti sees muutujate kuvamiseks.
+        //// ; - iga koodilause lõppeb komakooloniga.
+        //int arv2 = int.Parse(Console.ReadLine());
+        //// int - muutuja nime ees olev andmetüübi kirjeldus. See näitab ära mis tüüpi andmed selle muutuja sees on.
+        //// = - võrdusmärk omistab sellele muutujale mingisuguse väärtuse.
+        //// . - midagi selle objekti seest, sarnane windowsi kausta pathis oleva slashiga.
+        //Console.WriteLine("sisesta tehemärk: / * + - ^");
+        //// ("sisesta tehtemärk: / * + - ^); - parameeter mis antakse funktsioonile WriteLine töötlemiseks kaasa.
+        //string tehtetyyp = Console.ReadLine();
+        //// tekitame muutuja "tehtetyyp" mille ette paneme andmetüübiks string ehk ütleme et seal on tekst, ning võrdusmärgi abil omistame talle 
+        //// konsooli rea pealt loetu info mis saame kasutades "Console" mooduli, ReadLine() funktsiooni. lause lõppeb lauselõpumärkiga ; .
+        //int tulemus = 0;
+        //// int - muutuja nime ees olev andmetüübi kirjeldus. See näitab ära mis tüüpi andmed selle muutuja sees on.
+        //// = - võrdusmärk omistab sellele muutujale mingisuguse väärtuse.
+        //// 0 - väärtus mis sellele muutujale omistatakse.
+        //if (tehtetyyp == "+")
+        //// kasutatakse tingimuslauses if, ning sulgude vahele kirjutame tingimuseks kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõna "+".
+        //// muutuja arv1 ja muutuja arv2 . Lause lõppeb lauselõpumärgiga sulgude sees.
+        //{
+        //    tulemus = arv1 + arv2;
+        //}
+        //if (tehtetyyp == "-")
+        //// kasutatakse tingimuslauses if, ning sulgude vahele kirjutame tingimuseks kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõna "-".
+        //// muutuja arv1 ja muutuja arv2 . Lause lõppeb lauselõpumärgiga sulgude sees.
+        //{
+        //    // sellega tuvastatakse kas on tegemist lahutamisega.
+        //    {
+        //        tulemus = arv1 - arv2;
+        //    }
+        //    if (tehtetyyp == "*")
+        //    // kasutatakse tingimuslauses if, ning sulgude vahele kirjutame tingimuseks kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõna "*".
+        //    //  muutuja arv1 ja muutuja arv2 . Lause lõppeb lauselõpumärgiga sulgude sees. 
+        //    {
+        //        tulemus = arv1 * arv2;
+        //    }
+        //    if (tehtetyyp == "/")
+        //    // kasutatakse tingimuslauses if, ning sulgude vahele kirjutame tingimuseks kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõna "/".
+        //    //  muutuja arv1 ja muutuja arv2 . Lause lõppeb lauselõpumärgiga sulgude sees. 
+        //    {
+        //        tulemus = arv1 / arv2;
+        //        // peale tingimust on koodiplokk {} loogeliste sulgude vahel. koodiplokk sisaldab endas ühte rida kus muutujasse tulemus omistatakse nüüd väärtus jagades.
+        //        // 
+        //    }
+        //    if (tehtetyyp == "^")
+        //    // kasutatakse tingimuslauses if, ning sulgude vahele kirjutame tingimuseks kontrolli, kas muutuja "tehtetüüp" sisu on samal kujul, kui sõna "^".
+        //    //  muutuja arv1 ja muutuja arv2 . Lause lõppeb lauselõpumärgiga sulgude sees. 
+        //    {
+        //        tulemus = (int)Math.Pow(arv1, arv2);
+        //        // peale tingimust on koodiplokk {} loogeliste sulgude vahel. koodiplokk sisaldab endas ühte rida kus muutujasse tulemus omistatakse nüüd väärtus jagades.
+        //        // moodulist Math punkti abil funktsiooni "Pow()", selle sees on arv1 asendatavana esimene parameeter, ning arv2 astendajana teine parameeter.
+        //        // Funktsiooni ees on kiirteisendus kus funktsiooni väljund teisendatakse täisarvuks (int) abil. Lause lõppeb lauselõpumärkiga sulgude sees.
+        //    }
+
+        //    Console.WriteLine(tulemus);
+        // Adresseerime moodulit "Console", punkti abil ütleme et kasutame funktsiooni WriteLine, et kasutajale öelda sõnum.
+        // lause lõppeb lauselõppumärkiga.
+        //}// Adresseerime moodulit "Console" punkti abil ütleme et kasutame funktsiooni WriteLine, et kasutajale öelda sõnum.
+        // Parameeter mis antakse funktsioonile WriteLine töötlemiseks kaasa.
+        // " - saab ka kasutada teksti sees muutujate kuvamiseks.
+        // ; - iga koodilause lõppeb komakooloniga.
+        //
+        Console.WriteLine("Palun sisesta ostusumma");
+
+        double ostusumma = double.Parse(Console.ReadLine());
+
+        if (ostusumma > 100)
+
+        {
+            Console.WriteLine("Saa 20% allahindlust!");
+        }
+        else if (ostusumma < 101 && ostusumma > 50)
+        {
+            Console.WriteLine("Saad 10% allahindlust!");
+        }
+        else if (ostusumma < 51 && ostusumma > 20)
+        {
+            Console.WriteLine("Saad 5% allahindlust");
+        }
+        else if (ostusumma < 21)
+        {
+            Console.WriteLine("Allahindlust ei saa");
+        }
+        else if (ostusumma < 1)
+        {
+
+        }
+        Console.WriteLine("Sisestatud vigane arv");
+
+
+        //* tingimuslause usad */
+        if (true) { } // kaitstud sõna if kutsub esile tingimuslause, mille tingimus on sulgude vahel ning millele järgneb koodiplokk tingimuse täitumisel teostava koodiga
+        else if (true) { } // kaitstud sõnad else ja id (else if) kutsuvad esile sekundaarse tingimuslause mille tingimus //on samamoodi sulgude vahel ning millele peab eelnema alati if või else if. tingimuslause täitumisel // ja eelneva tingimuse mittetäitumisel teostatakse koodiploki sees olev kood.
+        else { } // kaitstud sõna else kutsub esile järeltingimuse, millele peab eelnema kas //if või else if, ning mille koodi plokki sisu täidetakse kõikide if ja else if sees olevate tingimuste läbikukkumisel.
+
+        int option = 3; // -------
+        switch (option) //"switch" on kaitstud sõna alternatiivse tingimuskontrolli jaoks mida saab if else-if asemel kasutada.
+                        //Sulgude vahele käib muutuja nimi, mille põhjal tingimuslik ümberlülitus toimub. Siin sulgude vahel ei ole tingimus ise, vaid kõigest kontrollitav muutuja, või omakorda sulgude vahel muu tingimus.
+                        //pärast lülitusvalikut tuleb koodiplokk
+
+        {
+            case 1: //koodiplokki sees on erinevad juhtumid. juhttumit kontrollitakse kaitstud sõna "case abil. Antud juhul kontrollitakse , kas muutuja on väärtus 1 , millele järgneb koolon":"
+                    //peale koolonit kirjeldatakse tehtav tegevus.
+
+                break; //ja kui tegevus on täidetud, väljutakse kogu switch tegevusest kaitstud sõna "breakiga. Peale breaki on lauselõppumärk.
+            case 2:
+                break;
+            case 3:
+                break;
+            //juhtumeid võib olla mitmeid, antud juhul on neid kolm kindlat, ja üks mida tehakse igal muul juhul.
+
+            default: //kaitstud sõna "default2 avab juhtumi kui muutujas ei ole mitte ühtegi muud "case juhtumi tingimust.
+                break; // ka default lõppeb sõnaga "break"
+        }
+
+        /* Sõne tööriistad ja tekstiga seotud */
+        string alfa = "a\nb";   // \n - tekitab ühe sõne sisse reamurde, sõne kus on üks "\n" omab kahte rida
+        string beta = $"{alfa}";  //$ - lubab kasutada muutujaid loogeliste sulgude vahel otse teksti sees.
+
+
+        /* Loogilised tehted */
+        //&& -"and" loogiline tehe, mida kasutatakse tingimuste kirjutamisel ning mis annab positiivse vastuse (true) juhul kui // mõlemal pool && märki olevad tingimused on täidetud. Kui üks neist ei ole, siis annab negatiivse vastuse (false).
+        //|| -"or" loogiline tehe, mida kasutatakse tingimuste kirjutamisel, ning mis annab positiivse vastuse (true) siis kui vähemalt üks tingimus on täidetud. negatiivne vastus (false) tagastatakse siis, kui kõik tingimused on täitmata.
+        // ! -"not" loogiline tehe, mida kasutatakse tingimuse tulemuse inverteerimiseks. Tulemus mis muidu tagastaks true, hüüumärki puhul tagastab false, ja vastupidi - tulemus mis muidu tagastaks false hüüumärgi puhul tagastab true.
+
+        /* Võrdlusoperaatorid */
+        // == - on võrdne. Võrdusmärki ühel pool olev objekt peab vastama täpselt oma olemuselt võrdusmärki teisel pool oleva objektiga. ei ole sama nagu üks võrdusmärk
+        // üks võrdusmärk omistab kaks võrdleb
+        // != - ei ole võrdne. Võrdusmärgi ühel pool olev objekt *EI TOHI* olla samal kujul nagu teisel pool olev objekt.
+        // Võrdusoperaator on kombinatsioon "on võrne" operaatorist ja loogilistest tehtest "not".
+        // >= - on suurem kui või võrdne kui . Märgist vasakul pool olev objekt peaks olema vähemalt võrdne kui suurem 
+        // kui paremal poll olev objekt. Operaator on kombinatsioon "on võrdne" ja "on suurem kui" operaatoritest.
+        // <= - on väiksem kui või võrdne kui. Märgist vasakul pool olev objekt peaks olema vähemalt võrdne või väiksem kui paremal pool olev objekt. Operaator on kombinatsioon "on võrdne" ja "on väiksem kui" operaaatoritest.
+
+        /* Omitusoperaatorid */
+        int arv = 1; // = - üksik võrdusmärk omistab muutujale väärtuse.
+        arv += 1; // += - võrdusmärk mille ees on pluss, automaatselt liidab muutujale otsa võrdusmärgi teisel pool oleva arvu.
+                  // asendab tehet "arv = arv - 1". on kombinatsioon matemaatilisest tehest "-" ja omistamisest (=")
+        arv *= 2; // *= - võrdusmärk mille ees on korrutusmärk *. automaatselt korrutab muutuja sisu võrdusmärgi teisel pool oleva arvu kordi. asendab tehet "arv = arv * 2". on kombinatsioon matemaatilisest tehtest "*" ja omistamisest (=)
+        arv /= 2; // /= - võrdusmärk mille ees on jagamismärk /. automaatselt jagab muutuja sisu võrdusmärgi teisel pool oleva arvu osadeks. asendab tehet "arv = arv / 2". on kombinatsioon matemaatilisest tehtest "/" ja omistamisest (=)
+        arv++; // ++ - on spetsiifiliselt ühe juurde liitmiseks lühivariant.
+        arv--; // -- - on spetsiifiliselt ühe maha liitmiseks lühivariant.----
+
+
+        /* Tsüklid */
+        do // "do" on kaitstud sõna, mis alustab do-while tsüklid pärast mida on koodi plokk , ning ütleb et tee seda koodi
+
+        {
+            d++;
+        } while (d != 5); //niikaua kuni while järel olevate sulgute vahel olev tingimus on täidetud.
+                          // 2. while
+        int i = 1; // tsüklimuutuja mis kontrollib "while" tsükli tööd
+        while (i < 5)
+        //antud juhul on selleks i. Tsükli tingimus, mis peale "while" sõna on, sulgude vahel, kontrollibki tingimuse abil, selle muutuja olekut.
+        // Siin kontrollitakse, et tsükkel ei oleks suurem kui 5, kui ta on, siis tsükkli töö loppeb.
+        {
+            //koodiplokk kus midagi tehakse
+            i++; //ning seejärel muudetakse tsüklimuutuja "i" olekut, antud juhul liidetakse 1 juurde.
+
+            while (i < 5) ; //"while" on kaitstud sõna mis alustab while tsükli varianti, ilma do-ta ning vajab tihtipeale välist tsüklimuutujat
+        }
+
+
+
+
+        // 3. for
+        int kogus = 6; // muutuja mida tsükkel kasutab töötlemiseks mingisugusel kujul
+        for (int k = 0; k < kogus; k++) // kaitstud sõna "for" alustab for tsüklit, pärast mida on sulud, mille vahel on kõik tsükli töö jaoks vajalik info. esimene parameeter tekitab tsükli töö jaoks muutuja "int k = 0;", teine parameeter on tingimuslause mis kontrollib tingimuslause täitumist "k < kogus;" ning kolmas inkrementeerib tekitatud muutujad "k++;", pane tähele et iga sulgude vahel oleva osa järel on lauselõpumärk. Tsükli tööd kontrolliv tingimuslause koosneb kolmest reast, mitte ühest nago while, või do-while puhul. koodiplokk kus tehakse mingi tegevus 
+        {
+            Console.WriteLine(k); //antud juhul on tegevuseks muutuja "k" arvu väljakuvamine.
+        }
+
+
+        
+    }
+    //* meetotid */
+
+    // Meetotid on väljakutsutuvad koodijupid. Meetodid teostavad tavaliselt mingeid funktsioone või tegevusi.
+    // Meetodid lasevad programmerijal taaskasutada oma eelnevalt kirjutatud koodi - write once use many times.
+    // Meetodeid on kahte liiki - ühed mis tagastavad andmeid missuguse töö tuemina, ja teised, mis ei tagasta
+    // midagi kuid omavad siiski mingit tegevust.
+
+    //Meetodi signatuur:
+    // Meetodi signatuur koosneb mitmest kinlalt äramääratud omadusest, nendeks on:
+    // - Juurdepääsu modifikaator mis ütleb ära, kust ja kuidas sellele meetodile juurde pääseda saab
+    // public - meetod on avalik ja kättesaadav ka teiste klassides peale selle, kus meetod ise asub.
+    // private - meetod on saadva ainult selle klassis , kus meetod ise asub.
+    // protected - meetod on saadav ainult selles klassis, kus meetod ise asub ja kõikides klassides millel on pärilus /sellele klassile.
+    // internal - Meetod on saadav ainult selles klassis ja ainult selles failis.
+    // - Võib olla ka pandud static - meetod kuulub selle klassi juurde .
+    // Tagastustüüp on modifikaator mis ütleb ära, mis tüüpi andmeid meetod tagasi annab kutsumise asukohta.
+    // Andmetüüp mida tagastada võib olls ükskõik milline liht või kombinatsiooniandmetüüp, aga kui meetod ei tagastada
+    // üldse andmeid, pannakse sellel asemel andmetüübide "void".
+    //void on meetodi sees, iga toimiva koodisuuna lõpus, kaitstud sõna return, return ütleb, et just see, on vaja
+    // väljakutseasukohta tagastada, ning peale returni on muutuja nimi tagastava infoga. Peale return lauset, ei
+    // teostata mitte ühtegi muud meetodi sisu. Return toimib ka kui breakina, lõpetakse siis aktiivse meetodi töö.
+
+    // 1. tüüpi meetod / ei tagasta midagi
+    public static void UusMeetod() // meetodi signatuur, mis omab juurdepääsumodifikaatori "public" , "static" ütleb et, 
+    // ta on selle klassi oma, tagastustüüp "void" ütleb et andmeid meie meetod ei tagasta 
+    //ning pärast meetodi omadusi on meetodi nimi "UusMeetod" peale mida on sulud, kus
+    // parameetrid pole.
+    //pärast signatuuri on koodiplokk meetodi koodiga {
+
+// antud juhul meetod kuvab konsooli sõnumi.
+{
+    Console.WriteLine("Tere");
 }
-else if (ostusumma < 101 && ostusumma > 50)
+
+
+// 2. tüüpi meetod.
+
+int[] arvutatavadArvud = new int[] { 3, 67, 420 }; // Töödeldavad andmed, mis asuvad täisarvumassis, muutujanimega
+                                                   // *arvutatavadArvud.
+
+public static int ArvutaKokku(int[] arvud) //Meetod, mille signatuuris on juurdepääsumodifikaator public, static
+                                           //ütleb et meetod kuulub siia klassi, tagastüüp "int" ütleb et
+                                           //programmis väljakutseasukohta tagastatakse täisarv, peale seda
+                                           //on meetodi nimi "ArvutaKokku ning sulgude vahel ootab meetod täisarvumassivi 
+                                           //millele pannakse meetodi sees ajutine nimi arvud. Peale signatuuri on
+                                           // koodiplokk {} tehtava koodiga.
 {
-    Console.WriteLine("Saad 10% allahindlust!"); }
-else if (ostusumma < 51 && ostusumma > 20)
-{
-    Console.WriteLine("Saad 5% allahindlust");
+    int summa = 0; // Tekitatakse täisarvuandmetüübi muutuja nimega "summa" kuhu esialgu omistatakse arv 0.
+
+    foreach (int i in arvud)// foreach tsükliga käiakse kõik täisarvumassivi "arvud" arvud läbi.,
+    {
+        summa += i; // ja muutujale summa lisatatakse juurde, hetkel käidav element.
+    }
+    return summa; // pärast tsükli töö lõppu tagastatakse "return" käsu abil, muutuja summa sisu.
 }
-else if (ostusumma < 21)
-{
-    Console.WriteLine("Allahindlust ei saa");
 }
-else if (ostusumma < 1)
-{
-
-}
-    Console.WriteLine("Sisestatud vigane arv");
-
-
-//* tingimuslause usad */
-if (true) { } // kaitstud sõna if kutsub esile tingimuslause, mille tingimus on sulgude vahel ning millele järgneb koodiplokk tingimuse täitumisel teostava koodiga
-else if (true) { } // kaitstud sõnad else ja id (else if) kutsuvad esile sekundaarse tingimuslause mille tingimus //on samamoodi sulgude vahel ning millele peab eelnema alati if või else if. tingimuslause täitumisel // ja eelneva tingimuse mittetäitumisel teostatakse koodiploki sees olev kood.
-else {} // kaitstud sõna else kutsub esile järeltingimuse, millele peab eelnema kas //if või else if, ning mille koodi plokki sisu täidetakse kõikide if ja else if sees olevate tingimuste läbikukkumisel.
-
-int option = 3; // -------
-switch (option) //"switch" on kaitstud sõna alternatiivse tingimuskontrolli jaoks mida saab if else-if asemel kasutada.
-    //Sulgude vahele käib muutuja nimi, mille põhjal tingimuslik ümberlülitus toimub. Siin sulgude vahel ei ole tingimus ise, vaid kõigest kontrollitav muutuja, või omakorda sulgude vahel muu tingimus.
-    //pärast lülitusvalikut tuleb koodiplokk
-   
-{
-    case 1: //koodiplokki sees on erinevad juhtumid. juhttumit kontrollitakse kaitstud sõna "case abil. Antud juhul kontrollitakse , kas muutuja on väärtus 1 , millele järgneb koolon":"
-        //peale koolonit kirjeldatakse tehtav tegevus.
-
-        break; //ja kui tegevus on täidetud, väljutakse kogu switch tegevusest kaitstud sõna "breakiga. Peale breaki on lauselõppumärk.
-    case 2:
-        break;
-    case 3:
-        break;
-        //juhtumeid võib olla mitmeid, antud juhul on neid kolm kindlat, ja üks mida tehakse igal muul juhul.
-
-    default: //kaitstud sõna "default2 avab juhtumi kui muutujas ei ole mitte ühtegi muud "case juhtumi tingimust.
-        break; // ka default lõppeb sõnaga "break"
-}
-
-/* Sõne tööriistad ja tekstiga seotud */
-string alfa = "a\nb";   // \n - tekitab ühe sõne sisse reamurde, sõne kus on üks "\n" omab kahte rida
-string beta = $"{alfa}";  //$ - lubab kasutada muutujaid loogeliste sulgude vahel otse teksti sees.
-
-
-/* Loogilised tehted */
-//&& -"and" loogiline tehe, mida kasutatakse tingimuste kirjutamisel ning mis annab positiivse vastuse (true) juhul kui // mõlemal pool && märki olevad tingimused on täidetud. Kui üks neist ei ole, siis annab negatiivse vastuse (false).
-//|| -"or" loogiline tehe, mida kasutatakse tingimuste kirjutamisel, ning mis annab positiivse vastuse (true) siis kui vähemalt üks tingimus on täidetud. negatiivne vastus (false) tagastatakse siis, kui kõik tingimused on täitmata.
-// ! -"not" loogiline tehe, mida kasutatakse tingimuse tulemuse inverteerimiseks. Tulemus mis muidu tagastaks true, hüüumärki puhul tagastab false, ja vastupidi - tulemus mis muidu tagastaks false hüüumärgi puhul tagastab true.
-
-/* Võrdlusoperaatorid */
-// == - on võrdne. Võrdusmärki ühel pool olev objekt peab vastama täpselt oma olemuselt võrdusmärki teisel pool oleva objektiga. ei ole sama nagu üks võrdusmärk
-// üks võrdusmärk omistab kaks võrdleb
-// != - ei ole võrdne. Võrdusmärgi ühel pool olev objekt *EI TOHI* olla samal kujul nagu teisel pool olev objekt.
-// Võrdusoperaator on kombinatsioon "on võrne" operaatorist ja loogilistest tehtest "not".
-// >= - on suurem kui või võrdne kui . Märgist vasakul pool olev objekt peaks olema vähemalt võrdne kui suurem 
-// kui paremal poll olev objekt. Operaator on kombinatsioon "on võrdne" ja "on suurem kui" operaatoritest.
-// <= - on väiksem kui või võrdne kui. Märgist vasakul pool olev objekt peaks olema vähemalt võrdne või väiksem kui paremal pool olev objekt. Operaator on kombinatsioon "on võrdne" ja "on väiksem kui" operaaatoritest.
-
-/* Omitusoperaatorid */
-int arv = 1; // = - üksik võrdusmärk omistab muutujale väärtuse.
-arv += 1; // += - võrdusmärk mille ees on pluss, automaatselt liidab muutujale otsa võrdusmärgi teisel pool oleva arvu.
-// asendab tehet "arv = arv - 1". on kombinatsioon matemaatilisest tehest "-" ja omistamisest (=")
-arv *= 2; // *= - võrdusmärk mille ees on korrutusmärk *. automaatselt korrutab muutuja sisu võrdusmärgi teisel pool oleva arvu kordi. asendab tehet "arv = arv * 2". on kombinatsioon matemaatilisest tehtest "*" ja omistamisest (=)
-arv /= 2; // /= - võrdusmärk mille ees on jagamismärk /. automaatselt jagab muutuja sisu võrdusmärgi teisel pool oleva arvu osadeks. asendab tehet "arv = arv / 2". on kombinatsioon matemaatilisest tehtest "/" ja omistamisest (=)
-arv++; // ++ - on spetsiifiliselt ühe juurde liitmiseks lühivariant.
-arv--; // -- - on spetsiifiliselt ühe maha liitmiseks lühivariant.----
-
-
-/* Tsüklid */
-do // "do" on kaitstud sõna, mis alustab do-while tsüklid pärast mida on koodi plokk , ning ütleb et tee seda koodi
-  
-{
-    d++; 
-} while (d !=5); //niikaua kuni while järel olevate sulgute vahel olev tingimus on täidetud.
-// 2. while
-int i = 1; // tsüklimuutuja mis kontrollib "while" tsükli tööd
-while (i < 5)
-//antud juhul on selleks i. Tsükli tingimus, mis peale "while" sõna on, sulgude vahel, kontrollibki tingimuse abil, selle muutuja olekut.
-// Siin kontrollitakse, et tsükkel ei oleks suurem kui 5, kui ta on, siis tsükkli töö loppeb.
-{
-    //koodiplokk kus midagi tehakse
-    i++; //ning seejärel muudetakse tsüklimuutuja "i" olekut, antud juhul liidetakse 1 juurde.
-
 while (i < 5)
     {
 
@@ -529,25 +751,5 @@ foreach (var arvInLoend in arvuLoend) //kaitstud sõna foreach alustab foreach t
     Console.WriteLine(arvInLoend);// antud juhul kuvatakse välja ajutine //muutujamille sees on loendi elementi
     }
 
-/* castimine */
-
-// castimine on viis kuidas ühest andmetüübist teist saada. castimist on kahte eri liiki automaatne ja manuaalne.
-// Automaatne castimine toimub siis kui teisendatakse väiksemast andmetüübist suuremasse
-// Manuaalne castimine toimib siis kui tahetakse saada suuremast andmetüübist väiksemat
-// Castitacse nii et teisendava muutuja ette pannakse sulud koos soovitud andmetüübiga
-
-double newDatal = 2.22d; //tekitame või on olemas suure mahuga andmed muutujas newDatal. Tegu on double admetega.
-float datalFloat = (float)newDatal; // "(float)" teisendab double tüüpi andmed float tüüpi andmeteks.
-long datalLong = (long)newDatal; // "(long)" teisendab double tüüpi andmed long tüüpi andmeteks.
-int datalInt = (int)newDatal; //"(int)" teisendab double tüüpi andmed int tüüpi andmeteks.
-char datalChar = (char)newDatal; //"(char)" teisendab double tüüpi andmed char tüüpi andmeteks.
 
 
-
-Math.Round(d); //Moodulist "Math" kutsutakse punkti abil esile meetod "Round". Sulgude vahel on ümardav arv.
-//Round ümardab sulgude vahel olevas muutujas asetseva arvu, vastavalt komakohtade parameetrile.
-// Vaikeväärtusena, lähima täisarvuni. 0-4 on allapoole 5-9 on ülespoole.
-
-double newpi = Math.PI; // Moodulist "Math" kutsutakse punkti abil esile väärtus, PI misväljendab matemaatilist pi-d ning saab kasutada kui tavaline arv.
-double astendus = Math.Pow(2, 2); // Moodulist "Math" kutsutakse punkti abil esile meetod "Pow" (power) Sulgude vahel on
-// Kaks parameetrit.
